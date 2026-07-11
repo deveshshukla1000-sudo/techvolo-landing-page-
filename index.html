@@ -1,42 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TechVolo | Development in Technology</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
 body{
     background:#000;
     color:#fff;
-    min-height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
-
-    display:block;
-
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
     position:relative;
 }
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
+    filter:blur(70px);
+    animation:bgMove 10s infinite alternate ease-in-out;
+}
+
+@keyframes bgMove{
+
+0%{
+transform:translate(-250px,-200px);
+}
+
+100%{
+transform:translate(250px,180px);
+}
+
+}
+
 .container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    width:90%;
+    max-width:1100px;
+    animation:fadeIn 1.5s ease;
+}
 
-position:relative;
-z-index:2;
+@keyframes fadeIn{
 
-width:min(95%,1200px);
+from{
+opacity:0;
+transform:translateY(25px);
+}
 
-margin:auto;
-
-padding:40px 18px;
-
-text-align:center;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
+to{
+opacity:1;
+transform:translateY(0);
+}
 
 }
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.logo img{
+    width:clamp(90px,12vw,180px);
+    height:auto;
+    object-fit:contain;
+    animation:float 5s infinite ease-in-out;
+    filter:drop-shadow(0 0 25px rgba(255,255,255,.18));
+    transition:.4s;
+}
+
+.logo img:hover{
+    transform:scale(1.05);
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+/* TEXT */
+
 h1{
+    font-size:clamp(38px,6vw,70px);
+    letter-spacing:6px;
+    font-weight:700;
+}
 
-font-size:clamp(2.3rem,10vw,4.5rem);
+h1 span{
+    color:#bdbdbd;
+}
 
-letter-spacing:2px;
+.subtitle{
+    margin-top:10px;
+    color:#cfcfcf;
+    font-size:clamp(16px,2vw,24px);
+    letter-spacing:3px;
+}
 
-line-height:1.1;
+.line{
+    width:180px;
+    height:2px;
+    background:#fff;
+    margin:30px auto;
+}
 
-word-break:break-word;
+/* SERVICES */
+
+.services{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#111;
+    border:1px solid #333;
+    padding:18px 28px;
+    border-radius:14px;
+    transition:.4s;
+    min-width:180px;
+}
+
+.card:hover{
+    background:#fff;
+    color:#000;
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(255,255,255,.2);
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 35px;
+    background:#fff;
+    color:#000;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+/* COUNTDOWN */
+
+.redirect{
+    margin-top:30px;
+    color:#aaa;
+    font-size:18px;
+}
+
+#count{
+    font-size:42px;
+    font-weight:700;
+    color:#fff;
+    margin:10px 0;
+}
+
+footer{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    color:#666;
+    font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.services{
+flex-direction:column;
+align-items:center;
+}
+
+.card{
+width:100%;
+max-width:320px;
+}
 
 }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Replace logo.png with your generated logo -->
+    <div class="logo">
+        <img src="logo.png" alt="TechVolo Logo">
+    </div>
+
+    <h1>TECH<span>VOLO</span></h1>
+
+    <p class="subtitle">
+        Development in Technology
+    </p>
+
+    <div class="line"></div>
+
+    <div class="services">
+
+        <div class="card">
+            🌐 Web Development
+        </div>
+
+        <div class="card">
+            🤖 AI Solutions
+        </div>
+
+        <div class="card">
+            ☁ Cloud Services
+        </div>
+
+        <div class="card">
+            📱 Mobile Applications
+        </div>
+
+        <div class="card">
+            ⚡ Automation
+        </div>
+
+    </div>
+
+    <a class="btn" href="https://yourwebsite.com">
+        Explore More
+    </a>
+
+    <div class="redirect">
+
+        Redirecting in
+
+        <div id="count">10</div>
+
+        seconds...
+
+    </div>
+
+</div>
+
+<footer>
+© 2026 TechVolo • Development in Technology
+</footer>
+
+<script>
+
+let seconds=10;
+
+const count=document.getElementById("count");
+
+const timer=setInterval(()=>{
+
+seconds--;
+
+count.innerHTML=seconds;
+
+if(seconds<=0){
+
+clearInterval(timer);
+
+// Change this URL
+window.location.href="https://yourwebsite.com";
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
