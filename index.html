@@ -10,6 +10,8 @@
 
 <style>
 
+/* ---------------- RESET ---------------- */
+
 *{
     margin:0;
     padding:0;
@@ -17,90 +19,111 @@
     font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#000;
     color:#fff;
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
+    overflow-x:hidden;
     position:relative;
 }
 
-/* Animated Background */
+/* ---------------- ANIMATED BACKGROUND ---------------- */
 
 body::before{
     content:"";
     position:absolute;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
-    filter:blur(70px);
+    width:800px;
+    height:800px;
+    background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+    filter:blur(90px);
     animation:bgMove 10s infinite alternate ease-in-out;
 }
 
 @keyframes bgMove{
 
 0%{
-transform:translate(-250px,-200px);
+transform:translate(-300px,-220px);
 }
 
 100%{
-transform:translate(250px,180px);
+transform:translate(300px,220px);
 }
 
 }
+
+/* ---------------- CONTAINER ---------------- */
 
 .container{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    width:90%;
-    max-width:1100px;
-    animation:fadeIn 1.5s ease;
+
+position:relative;
+z-index:2;
+width:90%;
+max-width:1200px;
+text-align:center;
+padding:40px 20px;
+
+animation:fadeIn 1.5s ease;
+
 }
 
 @keyframes fadeIn{
 
 from{
+
 opacity:0;
 transform:translateY(25px);
+
 }
 
 to{
+
 opacity:1;
 transform:translateY(0);
-}
 
 }
 
-/* LOGO */
+}
+
+/* ---------------- LOGO ---------------- */
 
 .logo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:20px;
+
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+
 }
 
 .logo img{
-    width:clamp(90px,12vw,180px);
-    height:auto;
-    object-fit:contain;
-    animation:float 5s infinite ease-in-out;
-    filter:drop-shadow(0 0 25px rgba(255,255,255,.18));
-    transition:.4s;
+
+width:clamp(90px,12vw,170px);
+height:auto;
+
+filter:drop-shadow(0 0 20px rgba(255,255,255,.2));
+
+animation:float 5s infinite ease-in-out;
+
+transition:.3s;
+
 }
 
 .logo img:hover{
-    transform:scale(1.05);
+
+transform:scale(1.05);
+
 }
 
 @keyframes float{
 
 0%,100%{
-transform:translateY(0px);
+transform:translateY(0);
 }
 
 50%{
@@ -109,112 +132,242 @@ transform:translateY(-10px);
 
 }
 
-/* TEXT */
+/* ---------------- TITLE ---------------- */
 
 h1{
-    font-size:clamp(38px,6vw,70px);
-    letter-spacing:6px;
-    font-weight:700;
+
+font-size:clamp(40px,6vw,70px);
+
+letter-spacing:6px;
+
+font-weight:700;
+
 }
 
 h1 span{
-    color:#bdbdbd;
+
+color:#bfbfbf;
+
 }
 
 .subtitle{
-    margin-top:10px;
-    color:#cfcfcf;
-    font-size:clamp(16px,2vw,24px);
-    letter-spacing:3px;
+
+margin-top:10px;
+
+font-size:clamp(17px,2vw,24px);
+
+letter-spacing:3px;
+
+color:#d1d1d1;
+
 }
+
+/* ---------------- BUTTON ---------------- */
+
+.hero-buttons{
+
+margin-top:30px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.btn-primary{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-decoration:none;
+
+background:#fff;
+
+color:#000;
+
+padding:16px 42px;
+
+border-radius:50px;
+
+font-size:18px;
+
+font-weight:600;
+
+min-width:270px;
+
+transition:.35s;
+
+box-shadow:0 10px 30px rgba(255,255,255,.15);
+
+}
+
+.btn-primary:hover{
+
+background:#e5e5e5;
+
+transform:translateY(-5px);
+
+box-shadow:0 15px 35px rgba(255,255,255,.25);
+
+}
+
+/* ---------------- DIVIDER ---------------- */
 
 .line{
-    width:180px;
-    height:2px;
-    background:#fff;
-    margin:30px auto;
+
+width:200px;
+
+height:2px;
+
+background:#fff;
+
+margin:35px auto;
+
 }
 
-/* SERVICES */
+/* ---------------- SERVICES ---------------- */
 
 .services{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
 }
 
 .card{
-    background:#111;
-    border:1px solid #333;
-    padding:18px 28px;
-    border-radius:14px;
-    transition:.4s;
-    min-width:180px;
+
+background:#111;
+
+border:1px solid rgba(255,255,255,.15);
+
+padding:18px 28px;
+
+border-radius:15px;
+
+min-width:180px;
+
+transition:.35s;
+
+cursor:pointer;
+
 }
 
 .card:hover{
-    background:#fff;
-    color:#000;
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(255,255,255,.2);
+
+background:#fff;
+
+color:#000;
+
+transform:translateY(-8px);
+
+box-shadow:0 10px 30px rgba(255,255,255,.15);
+
 }
 
-/* BUTTON */
-
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:14px 35px;
-    background:#fff;
-    color:#000;
-    text-decoration:none;
-    border-radius:40px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 20px rgba(255,255,255,.4);
-}
-
-/* COUNTDOWN */
+/* ---------------- COUNTDOWN ---------------- */
 
 .redirect{
-    margin-top:30px;
-    color:#aaa;
-    font-size:18px;
+
+margin-top:40px;
+
+color:#999;
+
+font-size:18px;
+
 }
 
 #count{
-    font-size:42px;
-    font-weight:700;
-    color:#fff;
-    margin:10px 0;
+
+font-size:42px;
+
+font-weight:bold;
+
+margin:10px 0;
+
+color:#fff;
+
 }
+
+/* ---------------- FOOTER ---------------- */
 
 footer{
-    position:absolute;
-    bottom:20px;
-    width:100%;
-    text-align:center;
-    color:#666;
-    font-size:14px;
+
+position:absolute;
+
+bottom:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+color:#666;
+
+font-size:14px;
+
 }
 
-/* MOBILE */
+/* ---------------- MOBILE ---------------- */
 
 @media(max-width:768px){
 
+.container{
+
+padding:30px 15px;
+
+}
+
+.hero-buttons{
+
+width:100%;
+
+}
+
+.btn-primary{
+
+width:100%;
+
+max-width:360px;
+
+font-size:17px;
+
+padding:16px 20px;
+
+}
+
 .services{
+
 flex-direction:column;
+
 align-items:center;
+
 }
 
 .card{
+
 width:100%;
-max-width:320px;
+
+max-width:340px;
+
+}
+
+footer{
+
+position:relative;
+
+margin-top:40px;
+
+left:auto;
+
+transform:none;
+
 }
 
 }
@@ -227,80 +380,95 @@ max-width:320px;
 
 <div class="container">
 
-    <!-- Replace logo.png with your generated logo -->
-    <div class="logo">
-        <img src="logo.png" alt="TechVolo Logo">
-    </div>
+<!-- Logo -->
+<div class="logo">
+<img src="logo.png" alt="TechVolo Logo">
+</div>
 
-    <h1>TECH<span>VOLO</span></h1>
+<!-- Company Name -->
+<h1>TECH<span>VOLO</span></h1>
 
-    <p class="subtitle">
-        Development in Technology
-    </p>
+<!-- Tagline -->
+<p class="subtitle">
+Development in Technology
+</p>
 
-    <div class="line"></div>
+<!-- Main Button -->
+<div class="hero-buttons">
 
-    <div class="services">
+<a href="https://yourwebsite.com" class="btn-primary">
 
-        <div class="card">
-            🌐 Web Development
-        </div>
+🚀 Explore Our Services
 
-        <div class="card">
-            🤖 AI Solutions
-        </div>
+</a>
 
-        <div class="card">
-            ☁ Cloud Services
-        </div>
+</div>
 
-        <div class="card">
-            📱 Mobile Applications
-        </div>
+<div class="line"></div>
 
-        <div class="card">
-            ⚡ Automation
-        </div>
+<!-- Services -->
 
-    </div>
+<div class="services">
 
-    <a class="btn" href="https://yourwebsite.com">
-        Explore More
-    </a>
+<div class="card">
+🌐 Web Development
+</div>
 
-    <div class="redirect">
+<div class="card">
+🤖 AI Solutions
+</div>
 
-        Redirecting in
+<div class="card">
+☁ Cloud Services
+</div>
 
-        <div id="count">10</div>
+<div class="card">
+📱 Mobile Development
+</div>
 
-        seconds...
+<div class="card">
+⚡ Automation
+</div>
 
-    </div>
+</div>
+
+<!-- Countdown -->
+
+<div class="redirect">
+
+Redirecting in
+
+<div id="count">10</div>
+
+seconds...
+
+</div>
 
 </div>
 
 <footer>
+
 © 2026 TechVolo • Development in Technology
+
 </footer>
 
 <script>
 
-let seconds=10;
+let time=10;
 
 const count=document.getElementById("count");
 
 const timer=setInterval(()=>{
 
-seconds--;
+time--;
 
-count.innerHTML=seconds;
+count.textContent=time;
 
-if(seconds<=0){
+if(time<=0){
 
 clearInterval(timer);
 
-// Change this URL
+// CHANGE THIS URL
 window.location.href="https://yourwebsite.com";
 
 }
